@@ -7,7 +7,7 @@
 
 ## Environment
 
-- MacOS Ubuntu(Linux)** 
+- MacOS Monterey 12.4 M1 Pro and Ubuntu 20.4 
 - R
 - plink `input version for all three of them`
 - PRice-2
@@ -17,3 +17,9 @@ In this project, the main task is to get acquainted with the genome wide associa
 
 ## Data
 The data is precented by 39041 people from the Russian cohort, gentified using the Illumina Infinium Global Screening Array (GSA) provided by Genotek. Since the Genotek data cannot be provided to third parties, we recommend using [simulated data]() for all steps.
+
+`Describe Bam .fam, .bim, .bed or binary variant`
+
+### Quality Control
+
+1. 
