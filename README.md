@@ -91,7 +91,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
    ```   
 4. Imputing
 
-   Imputing is based on the procedure for determining the human genotype in positions that are not represented on the microchip, based on linkage disequilibrium. The cohort was imputed using the [beagle 5.1]() program with two reference panels: [1000Genomes](https://paperpile.com/c/TWVdsM/gzwN) and [Haplotype Reference Consortium](https://paperpile.com/c/TWVdsM/gzwN+xPDs). In the subsequent analysis, positions were used that received a high imputing quality metric DR2 < 0.7. Multi-allelic substitutions were excluded from ongoing analyses.
+   Imputing is based on the procedure for determining the human genotype in positions that are not represented on the microchip, based on linkage disequilibrium. The cohort was imputed using the [beagle 5.1](https://faculty.washington.edu/browning/beagle/beagle.html) program with two reference panels: [1000Genomes](https://www.internationalgenome.org/) and [Haplotype Reference Consortium](http://www.haplotype-reference-consortium.org/participating-cohorts). In the subsequent analysis, positions were used that received a high imputing quality metric DR2 < 0.7. Multi-allelic substitutions were excluded from ongoing analyses.
    
 5. Remove positions on sex chromosomes and mitochondria
    
