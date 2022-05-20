@@ -99,7 +99,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
    ```
    awk '{ if ($1 >= 1 && $1 <= 22) print $2 }' file_6.bim > snp_1_22.txt
    ```
-   b. Delete them from our **file6**
+   b. Extract them from our **file6**
    ```
    plink --bfile file_6 --extract snp_1_22.txt --make-bed --out file_7
    ```
