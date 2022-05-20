@@ -25,7 +25,8 @@ The data is precented by 39041 people from the Russian cohort, gentified using t
 `Describe Bam .fam, .bim, .bed or binary variant and how to extract to one folder. Input .png for better visualization`
 ![alt text](https://www.researchgate.net/publication/323424714/figure/fig3/AS:667766705098757@1536219397189/Overview-of-various-commonly-used-PLINK-files-SNP-single-nucleotide-polymorphism.png)
 
-МОЖЕТ БЫТЬ ВСТАВИТЬ КЛАССНУЮ БОЛЬШУЮ ТАБЛИЧКУ
+### Pipline
+![](pipline.png)
 ![alt text](https://www.researchgate.net/publication/281588338/figure/fig4/AS:281417822031895@1444106645940/Genome-wide-association-GWA-analysis-workflow-GWA-analysis-is-composed-of-10-essential.png)
 
 ## Quality Control
