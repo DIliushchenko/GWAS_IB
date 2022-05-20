@@ -128,7 +128,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 
 ## GWAS
 
-  In GWAS analysis used patiants age, sex and 15 MDS component as a covariants. 39041 samples were included in analysis. We used a linear or logistic regression model depending on the phenotype of the patients. The results were annotated using the [SnpEff 4.3t](https://paperpile.com/c/TWVdsM/uk7W+Iw4U), taking into account genetic variants that are in linkage disequilibrium with a significant SNP.
+  In GWAS analysis used patients age, sex and 15 MDS component as a covariants. 39041 samples were included in analysis. We used a linear or logistic regression model depending on the phenotype of the patients. The results were annotated using the [SnpEff 4.3t](https://paperpile.com/c/TWVdsM/uk7W+Iw4U), taking into account genetic variants that are in linkage disequilibrium with a significant SNP.
   
   To investigate an quantitative outcome measurement you should use a linear regression model
   
@@ -140,8 +140,15 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
   
     ```
     plink --bfile file_9 --covar mds_components_file.txt --logistic --out gwas_logistic_results
-    ```    
+    ```
+  
+  After finishing GWAS analysis, you will receive a 15-column file with summary of GWAS statistics data. 
+  
+  ВСТАВИТЬ КАРТИНКУ С ПОДПИСАННЫМИ КОЛОНКАМИ ФАЙЛА
+  
+  After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, OR, beta and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
     
 ## Results 
+
 
 ## Literature
