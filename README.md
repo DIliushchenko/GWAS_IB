@@ -25,8 +25,9 @@ The data is precented by 39041 people from the Russian cohort, gentified using t
 `Describe Bam .fam, .bim, .bed or binary variant and how to extract to one folder. Input .png for better visualization`
 ![alt text](https://www.researchgate.net/publication/323424714/figure/fig3/AS:667766705098757@1536219397189/Overview-of-various-commonly-used-PLINK-files-SNP-single-nucleotide-polymorphism.png)
 
-МОЖЕТ БЫТЬ ВСТАВИТЬ КЛАССНУЮ БОЛЬШУЮ ТАБЛИЧКУ
+## Pipline
 ![alt text](https://www.researchgate.net/publication/281588338/figure/fig4/AS:281417822031895@1444106645940/Genome-wide-association-GWA-analysis-workflow-GWA-analysis-is-composed-of-10-essential.png)
+![](pipline.png)
 
 ## Quality Control
 Before we start make sure you have [plink](https://www.cog-genomics.org/plink/)  and [R](https://www.r-project.org) installed.
@@ -144,7 +145,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 
   After finishing GWAS analysis, you will receive a 15-column file with summary of GWAS statistics data. 
   
-  ```ВСТАВИТЬ КАРТИНКУ С ПОДПИСАННЫМИ КОЛОНКАМИ ФАЙЛА```
+![GWAS Output](gwas_result.png)
   
   After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, OR, beta and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
     
