@@ -149,6 +149,20 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
   After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, OR, beta and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
     
 ## Results 
+![annotation_genes_manhattan](https://user-images.githubusercontent.com/90853333/169512824-0b7d8351-3afb-48e5-8101-619bb239e011.png)
 
+First 10 lead SNP (by p-value)
+| rs ID | Gene | Chromosome | Position | p-value |
+|:-----:|:----:|:----------:|:--------:|:-------:|
+| rs71863246 | FTO | 16 | 53812770 | 3.31807e-32 |
+| rs13022164 | TMEM18 | 2 | 632536 | 7.5091e-23 |
+| rs68191244 | RNU4-17P | 18 | 57733386 | 2.17541e-16 |
+| rs72892910 | TFAP2B | 6 | 50816887 | 6.8864e-15 |
+| rs539515 | SEC16B | 1 | 177889025 | 4.92406e-12 |
+| rs34643430 | CPNE8 | 12 | 39440653 | 8.24194e-12 |
+| rs144582188 | PRDX4P1 | 4 | 45165650 | 1.89873e-11 |
+| rs62104180 | ALKAL2 | 2 | 466003 | 3.16951e-11 |
+| rs10876551 | EFR3B | 12| 39542943 | 1.23454e-10 |
+| rs6749422 | ADCY3 | 2 | 25150011 | 1.76053e-10 |
 
 ## Literature
