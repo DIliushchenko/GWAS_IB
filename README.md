@@ -104,7 +104,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
    plink --bfile file_6 --extract snp_1_22.txt --make-bed --out file_7
    ```
  
- 6. MAF filtering
+6. MAF filtering
 
    Filtering out of positions based on minor allele frequency (MAF), while SNP with low MAF often associated with genotyping errors. Threshold depends on number of positions contained in data, in our case we will use **threshold 0.01**
    a. Remove SNPs with a low MAF frequency
