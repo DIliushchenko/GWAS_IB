@@ -25,8 +25,7 @@ The data is precented by 39041 people from the Russian cohort, gentified using t
 `Describe Bam .fam, .bim, .bed or binary variant and how to extract to one folder. Input .png for better visualization`
 ![alt text](https://www.researchgate.net/publication/323424714/figure/fig3/AS:667766705098757@1536219397189/Overview-of-various-commonly-used-PLINK-files-SNP-single-nucleotide-polymorphism.png)
 
-### Pipline
-![](pipline.png)
+МОЖЕТ БЫТЬ ВСТАВИТЬ КЛАССНУЮ БОЛЬШУЮ ТАБЛИЧКУ
 ![alt text](https://www.researchgate.net/publication/281588338/figure/fig4/AS:281417822031895@1444106645940/Genome-wide-association-GWA-analysis-workflow-GWA-analysis-is-composed-of-10-essential.png)
 
 ## Quality Control
@@ -129,30 +128,33 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 
 ## GWAS
 
-  In GWAS analysis used patients age, sex and 15 MDS component as a covariants. 39041 samples were included in analysis. We used a linear or logistic regression model depending on the phenotype of the patients. The results were annotated using the [SnpEff 4.3t](https://paperpile.com/c/TWVdsM/uk7W+Iw4U), taking into account genetic variants that are in linkage disequilibrium with a significant SNP.
+  In GWAS analysis used patients age, sex and 15 MDS component as a covariants. 39041 samples were included in analysis. We used a linear or logistic regression model depending on the phenotype of the patients. The results were annotated using the SnpEff 4.3t database, taking into account genetic variants that are in linkage disequilibrium with a significant SNP.
   
   To investigate an quantitative outcome measurement you should use a linear regression model
   
-    ```
-    plink --bfile file_9 --covar mds_components_file.txt --linear --out gwas_linear_results
-    ```
-    
+   ```
+   plink --bfile file_9 --covar mds_components_file.txt --linear --out gwas_linear_results
+   ```
+     
   In case of qualitative measurement of the outcome, you should use a logistic regression model:
   
-    ```
-    plink --bfile file_9 --covar mds_components_file.txt --logistic --out gwas_logistic_results
-    ```
-  
+   ```
+   plink --bfile file_9 --covar mds_components_file.txt --logistic --out gwas_logistic_results
+   ```
+
   After finishing GWAS analysis, you will receive a 15-column file with summary of GWAS statistics data. 
   
-  ВСТАВИТЬ КАРТИНКУ С ПОДПИСАННЫМИ КОЛОНКАМИ ФАЙЛА
+  ```ВСТАВИТЬ КАРТИНКУ С ПОДПИСАННЫМИ КОЛОНКАМИ ФАЙЛА```
   
   After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, OR, beta and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
     
 ## Results 
+  In our study, we found 17 leading SNPs that significantly correlated with changes in body mass index. On the manhattan plot you can see our main findings.  
+
 ![annotation_genes_manhattan](https://user-images.githubusercontent.com/90853333/169512824-0b7d8351-3afb-48e5-8101-619bb239e011.png)
 
-First 10 lead SNP (by p-value)
+Top 10 lead SNP (by p-value) placed in a separate table:
+
 | rs ID | Gene | Chromosome | Position | p-value |
 |:-----:|:----:|:----------:|:--------:|:-------:|
 | rs71863246 | FTO | 16 | 53812770 | 3.31807e-32 |
@@ -165,5 +167,13 @@ First 10 lead SNP (by p-value)
 | rs62104180 | ALKAL2 | 2 | 466003 | 3.16951e-11 |
 | rs10876551 | EFR3B | 12| 39542943 | 1.23454e-10 |
 | rs6749422 | ADCY3 | 2 | 25150011 | 1.76053e-10 |
+
+  Previously, 14 SNPs have been shown to be associated with changes in BMI, but we found 3 SNPs that are not associated with BMI, according to Varsome, the GWAS catalog, and the NCBI SNP databases.
+  
+| rs ID | Gene | Chromosome | Position | p-value |
+|:-----:|:----:|:----------:|:--------:|:-------:|
+| rs34643430 | CPNE8 | 12 | 39440653 | 8.24194e-12 |
+| rs62095984 | RP11-795H16.3 | 18 | 57771877 | 1.41311e-09 |
+| rs7957068 | VWF | 12 | 6163378 | 2.50759e-08 |
 
 ## Literature
