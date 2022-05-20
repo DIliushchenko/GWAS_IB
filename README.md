@@ -93,27 +93,25 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 
    Imputing is based on the procedure for determining the human genotype in positions that are not represented on the microchip, based on linkage disequilibrium. The cohort was imputed using the [beagle 5.1]() program with two reference panels: [1000Genomes](https://paperpile.com/c/TWVdsM/gzwN) and [Haplotype Reference Consortium](https://paperpile.com/c/TWVdsM/gzwN+xPDs). In the subsequent analysis, positions were used that received a high imputing quality metric DR2 < 0.7. Multi-allelic substitutions were excluded from ongoing analyses.
    
-   
-5. MAF filtering
-
-   Filtering out of positions based on minor allele frequency (MAF), while SNP with low MAF often associated with genotyping errors. Threshold depends on number of positions contained in data, in our case we will use **threshold 0.01**
+5. Remove positions on sex chromosomes and mitochondria
    
    a.  Select autosomal SNPs only
    ```
    awk '{ if ($1 >= 1 && $1 <= 22) print $2 }' file_6.bim > snp_1_22.txt
    ```
-   b.
+   b. Delete them from our **file6**
    ```
    plink --bfile file_6 --extract snp_1_22.txt --make-bed --out file_7
    ```
-   c. Remove SNPs with a low MAF frequency
+ 
+ 6. MAF filtering
+
+   Filtering out of positions based on minor allele frequency (MAF), while SNP with low MAF often associated with genotyping errors. Threshold depends on number of positions contained in data, in our case we will use **threshold 0.01**
+   a. Remove SNPs with a low MAF frequency
    ```
    plink --bfile file_7 --maf 0.01 --make-bed --out file_8
    ```
- 6. Rremove positions on sex chromosomes and mitochondria
-   ```
-   ```
- 
+   
  7. Hardy–Weinberg equilibrium
  
     Filtering of positions with inclination of the Hardy-Weinberg equilibrium: positions with a significant difference between the observed genotype frequencies and those expected according to the exact Hardy-Weinberg test (p-value < 1e-05) were removed.
