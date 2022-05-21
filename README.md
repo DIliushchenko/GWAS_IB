@@ -6,7 +6,7 @@
 - Alexander Rakitko (Supervisor)
 
 ## Environment
-- MacOS Monterey 12.4(M1 support) or Ubuntu 20.4 
+- MacOS Monterey 12.4 (M1 support) or Ubuntu 20.4 
 - [R-4.2.0](https://www.r-project.org)
 - [plink v1.9](https://www.cog-genomics.org/plink/)
 - [PRice-2](https://www.prsice.info)
@@ -36,7 +36,7 @@ The data is precented by 39041 people from the Russian cohort, gentified using t
 
 Before we start make sure you have [plink](https://www.cog-genomics.org/plink/)  and [R](https://www.r-project.org) installed.
 
-1. Filtering samlpes and positions (SNP) by call rate
+1. Filtering samples and positions (SNP) by call rate
   
    First step is filtering positions and samples that are missing in a large proportion of the subjects
    
@@ -82,7 +82,8 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
    ```
    plink --bfile file_5 --extract independent_SNP.prune.in --het --out R_check
    ```
-   c. Generate a list of individuals who deviate more than 3 standard deviations from the heterozygosity rate mean    
+   c. Generate a list of individuals who deviate more than 3 standard deviations from the heterozygosity rate mean
+   We recommend using this [script](https://github.com/MareesAT/GWA_tutorial/) that have name `heterozygosity_outliers_list.R` in archive 1_QC_GWAS.zip
    ```
    Rscript --no-save heterozygosity_outliers_list.R
    ```
@@ -97,7 +98,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 4. Imputing
 
    Imputing is based on the procedure for determining the human genotype in positions that are not represented on the microchip, based on linkage disequilibrium. The cohort was imputed using the [beagle 5.1](https://faculty.washington.edu/browning/beagle/beagle.html) program with two reference panels: [1000Genomes](https://www.internationalgenome.org/) and [Haplotype Reference Consortium](http://www.haplotype-reference-consortium.org/participating-cohorts). In the subsequent analysis, positions were used that received a high imputing quality metric DR2 < 0.7. Multi-allelic substitutions were excluded from ongoing analyses.
-   
+
 5. Remove positions on sex chromosomes and mitochondria
    
    a.  Select autosomal SNPs only
@@ -156,7 +157,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
   
 ![GWAS Output](gwas_result.png)
   
-  After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, OR, beta and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
+  After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, T-STAT, beta and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
     
 ## Results 
   In our study, we found 17 leading SNPs that significantly correlated with changes in body mass index. On the manhattan plot you can see our main findings.  
@@ -186,8 +187,12 @@ Top 10 lead SNP (by p-value) placed in a separate table:
 | rs62095984 | RP11-795H16.3 | 18 | 57771877 | 1.41311e-09 |
 | rs7957068 | VWF | 12 | 6163378 | 2.50759e-08 |
 
-### GENE SETS
+## Gene Based Test
 
+A gene-based approach considers association between a trait and all SNP within a gene rather than each marker individually. Gene based test is assign SNP to the genes obtained from Ensembl build 85. Genome-wide significance (red dashed line) was set at 0.05 / N of genes. This test was also performed using FUMA.
+
+## Gene sets
+To perfom gene set analysis we used GENE2FUNC tab in FUMA web site. Gene set analysis takes into account the “scores” (in our case p-values) of all mapped genes and carries out a test of the relationship between a gene set and the genetic associations of genes with a phenotype [Leeuw A et al 2016](https://www.nature.com/articles/nrg.2016.29). The picture below shows that the analysis identified 15 top genes with the highest p-values, which were obtained in a gene-based test and made a gene set from them. Next, we can see that most of our genes are associated with phenotypes such as obesity, body mass index, etc. All phenotypes highlighted in red boxes can be connected height and weight in our data.
 ![](gene_sets_expression.png)
 
 ## Literature
