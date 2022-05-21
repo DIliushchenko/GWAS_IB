@@ -189,7 +189,7 @@ Top 10 lead SNP (by p-value) placed in a separate table:
 
 ## Gene Based Test
 
-A gene-based approach considers association between a trait and all SNP within a gene rather than each marker individually. Gene based test is assign SNP to the genes obtained from Ensembl build 85. Genome-wide significance (red dashed line) was set at 0.05 / N of genes. This test was also performed using FUMA. At the picture below we can see top 9 gene asociations.
+A gene-based approach considers association between a trait and all SNP within a gene rather than each marker individually. Gene based test is assigning SNP to the genes obtained from Ensembl build 85. Genome-wide significance (red dashed line) was set at 0.05 / N of genes. This test was also performed using FUMA. At the picture below we can see top 9 gene asociations.
 ![](gene_based_test.png)
 
 ## Gene sets
