@@ -194,7 +194,7 @@ A gene-based approach considers association between a trait and all SNP within a
 ![](gene_based_test.png)
 
 ## Gene sets
-To perfom gene sets analysis we used GENE2FUNC tab in FUMA web site. Gene sets analysis takes into account the “scores” (in our case p-values) of all mapped genes and carries out a test of the relationship between a gene sets and the genetic associations of genes with a phenotype [Leeuw A et al 2016](https://www.nature.com/articles/nrg.2016.29). The picture below shows that the analysis identified 15 top genes with the highest p-values, which were obtained in a gene-based test and combined into one, already presented in MsigDB, WikiPathways databases, gene set. Next, we can see that most of our genes are associated with phenotypes such as obesity, body mass index, etc. All phenotypes highlighted in red boxes can be connected height and weight in our data.
+To perform gene set analysis we use GENE2FUNC analysis tool in FUMA software. Gene sets analysis takes into account the “scores” (in our case p-values) of all mapped genes and carries out a test of the relationship between a gene sets and the genetic associations of genes with a phenotype [Leeuw A et al 2016](https://www.nature.com/articles/nrg.2016.29). The picture below shows that the analysis identified 15 top genes with the highest p-values, which were obtained in a gene-based test and combined into one, already presented in MsigDB, WikiPathways databases, gene set. Next, we can see that most of our genes are associated with phenotypes such as obesity, body mass index, etc. All phenotypes highlighted in red boxes can be connected height and weight in our data.
 ![](gene_sets_expression.png)
 
 ## Conclusion and further plans
