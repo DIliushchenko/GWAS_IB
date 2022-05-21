@@ -134,7 +134,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
   
   On the left figure you can see population stratification of our samples combined with 1000Genomes dataset. The right figure shows the MDS plot after sample filtering and without 1000Genomes data.
   
-  ![](MDS_merge_pca.full_plot.jpeg) ![](pca_1_2.jpeg)
+  ![](merge_MDS.jpeg)
 
 ## GWAS
 
