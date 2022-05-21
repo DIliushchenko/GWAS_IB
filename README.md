@@ -61,7 +61,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 
    Subjects who were a priori determined as females must have a F value of <0.2, and subjects who were a priori determined as males must have a F value >0.8. This F value is based on the X chromosome inbreeding (homozygosity) estimate. 
    
-   a. Mark subjects who do not fulfil these requirements as "PROBLEM"
+   a. Mark samples that do not meet these requirements as "PROBLEM"
    ```
    plink --bfile file_4 --check-sex 
    ```
@@ -113,6 +113,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 6. MAF filtering
 
    Filtering out of positions based on minor allele frequency (MAF), while SNP with low MAF often associated with genotyping errors. Threshold depends on number of positions contained in data, in our case we will use **threshold 0.01**
+   
    a. Remove SNPs with a low MAF frequency
    ```
    plink --bfile file_7 --maf 0.01 --make-bed --out file_8
@@ -131,7 +132,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
     
 ## Popilation Stratification
 
-  Before proceeding GWAS analysis you should consider a population stratification of yours data. We used MultiDimensional Scaling algorithm (MDS) to reduce dimentions of the studied cohort which was conmined with samples from the 1000Genomes dataset (EAS, AFR, EUR). We used an common position for both datasets with filtration with linkage filtering (search window - 50 SNPs, number of SNPs to shift the window at the end of the step - 5, r2 between SNPs < 0.2). We performed clustering based on first and secound component using [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) algoritm. The samples which are not included in the clusters were excluded. Then we apply MDS algorithm again, but without merging sapmles with the 1000Genomes dataset. We selected the first 15 components to be used as covariates in the GWAS analysis.
+  Before proceeding GWAS analysis you should consider a population stratification of yours data. We used MultiDimensional Scaling algorithm (MDS) to reduce dimentions of the studied cohort which was combined with samples from the 1000Genomes dataset (EAS, AFR, EUR). We used an common position for both datasets with filtration with linkage filtering (search window - 50 SNPs, number of SNPs to shift the window at the end of the step - 5, r2 between SNPs < 0.2). We performed clustering based on first and secound component using [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) algoritm. The samples which are not included in the clusters were excluded. Then we apply MDS algorithm again, but without merging sapmles with the 1000Genomes dataset. We selected the first 15 components to be used as covariates in the GWAS analysis.
   
   On the left figure you can see population stratification of our samples combined with 1000Genomes dataset. The right figure shows the MDS plot after sample filtering and without 1000Genomes data.
   
@@ -139,7 +140,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 
 ## GWAS
 
-  In GWAS analysis used patients age, sex and 15 MDS component as a covariants. 39041 samples were included in analysis. We used a linear or logistic regression model depending on the phenotype of the patients. The results were annotated using the SnpEff 4.3t database, taking into account genetic variants that are in linkage disequilibrium with a significant SNP.
+  In GWAS analysis used patients age, sex and first 15 MDS component as a covariants. 39041 samples were included in analysis. We used a linear or logistic regression model depending on the phenotype of the patients. The results were annotated using the SnpEff 4.3t database, taking into account genetic variants that are in linkage disequilibrium with a significant SNP.
   
   To investigate an quantitative outcome measurement you should use a linear regression model
   
@@ -157,7 +158,7 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
   
 ![GWAS Output](gwas_result.png)
   
-  After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, T-STAT, beta and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
+  After receiving GWAS summary data file you can proceed to data visualization. We recommend using a [FUMA](https://fuma.ctglab.nl/) software to functional mapping and annotation of results. FUMA requires only 8 columns from GWAS summary file: chromosome number, SNP position, rs ID, p-value, effect allele (A1), non-effect allele, T-STAT, BETA and SE. You can filter your raw summary file with simple command line tool ```cut -f```. FUMA accepts files smaller than 600 Mb, if your target file are bigger, please, compress it with ```gzip``` tool. Before run insert all paremeters for the lead and candidate SNPs, based on your data, which includes: sample size, p-value tresshold for lead SNP, p-value cutoff, r$^{2}$ tresshold to define independant significant SNP, MAF and some others.
     
 ## Results 
   In our study, we found 17 leading SNPs that significantly correlated with changes in body mass index. On the manhattan plot you can see our main findings.  
@@ -179,7 +180,7 @@ Top 10 lead SNP (by p-value) placed in a separate table:
 | rs10876551 | EFR3B | 12| 39542943 | 1.23454e-10 |
 | rs6749422 | ADCY3 | 2 | 25150011 | 1.76053e-10 |
 
-  Previously, 14 SNPs have been shown to be associated with changes in BMI, but we found 3 SNPs that are not associated with BMI, according to Varsome, the GWAS catalog, and the NCBI SNP databases.
+14 SNPs (out of 17) were shown to be associated with changes in BMI, but we found 3 SNPs that are not associated with BMI, according to Varsome, the GWAScatalog, and the NCBI SNP databases. The impact of these SNPs on BMI changes has yet to be confirmed.
   
 | rs ID | Gene | Chromosome | Position | p-value |
 |:-----:|:----:|:----------:|:--------:|:-------:|
@@ -198,9 +199,9 @@ To perfom gene sets analysis we used GENE2FUNC tab in FUMA web site. Gene sets a
 
 ## Conclusion and further plans
 
-The analysis of GWAS showed significant SNPs that were already associated with body mass index, obesity, and height. At the same time, 3 SNPs were found that were not annotated and associated with height and weight.
+The analysis of GWAS results showed that 17 significant SNPs were associated with changing in body mass index. Moreover, for 3x SNPs such association has not been shown previously. We will continue this project and find out whether these SNPs are related to BMI changes or whether these results are an artifact.
 
-In future plans, we are going to use the GWAS data to build polygenic risk scores using the PRSIСE-2 program.
+In future plans, we are going to use the GWAS data to build polygenic risk scores using the PRSice-2 program.
 
 ## Literature
 
