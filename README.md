@@ -180,4 +180,8 @@ Top 10 lead SNP (by p-value) placed in a separate table:
 | rs62095984 | RP11-795H16.3 | 18 | 57771877 | 1.41311e-09 |
 | rs7957068 | VWF | 12 | 6163378 | 2.50759e-08 |
 
+### GENE SETS
+
+![](gene_sets_expression.png)
+
 ## Literature
