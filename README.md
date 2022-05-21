@@ -25,10 +25,10 @@ Genome-wide association study (GWAS) is a study of a genome-wide set of genetic 
   5. Analyze summary GWAS statistics of real data
 
 ## Data availability
-The data is precented by 39041 people from the Russian cohort, gentified using the Illumina Infinium Global Screening Array (GSA) v1.0 / v2.0 / v3.0 provided by Genotek. Scan images processing and genotypes calling were performed using GenomeStudio v2.0. Since the Genotek data cannot be provided to third parties, we recommend using [simulated data](https://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/2010-05_phaseIII/plink_format/) for all steps. 
+The data is precented by 39041 people from the Russian cohort, gentified using the Illumina Infinium Global Screening Array (GSA) v1.0 / v2.0 / v3.0 provided by Genotek. Scan images processing and genotypes calling were performed using GenomeStudio v2.0. Since the Genotek data cannot be provided to third parties, we recommend using [simulated data](https://github.com/MareesAT/GWA_tutorial/blob/master/1_QC_GWAS.zip/) for all steps (files with .bam , .fam and bim format). 
 
 ## Structure of Data
-`Describe Bam .fam, .bim, .bed or binary variant and how to extract to one folder. Input .png for better visualization`
+See below for a description of the formats `.ped` and `.map`. For further work with the plink program, these files must be converted to `.bam`,`.fam`,`.bim`. In the [tutorial](https://github.com/MareesAT/GWA_tutorial/blob/master/), data is already given in recoded format.
 ![alt text](https://www.researchgate.net/publication/323424714/figure/fig3/AS:667766705098757@1536219397189/Overview-of-various-commonly-used-PLINK-files-SNP-single-nucleotide-polymorphism.png)
 
 ## Quality control
