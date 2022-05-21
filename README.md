@@ -126,6 +126,8 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
 
   Before proceeding GWAS analysis you should consider a population stratification of yours data. We used MultiDimensional Scaling algorithm (MDS) to reduce dimentions of the studied cohort which was conmined with samples from the 1000Genomes dataset (EAS, AFR, EUR). We used an common position for both datasets with filtration with linkage filtering (search window - 50 SNPs, number of SNPs to shift the window at the end of the step - 5, r2 between SNPs < 0.2). We performed clustering based on first and secound component using [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) algoritm. The samples which are not included in the clusters were excluded. Then we apply MDS algorithm again, but without merging sapmles with the 1000Genomes dataset. We selected the first 15 components to be used as covariates in the GWAS analysis.
   
+  On the left figure you can see population stratification of our samples combined with 1000Genomes dataset. The right figure shows the MDS plot after sample filtering and without 1000Genomes data.
+  
   ![](MDS_merge_pca.full_plot.jpeg) ![](pca_1_2.jpeg)
 
 ## GWAS
