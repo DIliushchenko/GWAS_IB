@@ -9,8 +9,8 @@
 - MacOS Monterey 12.4 (M1 support) or Ubuntu 20.4 
 - [R-4.2.0](https://www.r-project.org)
 - [plink v1.9](https://www.cog-genomics.org/plink/)
-- [PRice-2](https://www.prsice.info)
 - [PRIMUS v1.9](https://primus.gs.washington.edu/primusweb/index.html)
+- [beagle 5.1](https://faculty.washington.edu/browning/beagle/beagle.html)
 
 ## Introduction
 
@@ -28,7 +28,7 @@ Genome-wide association study (GWAS) is a study of a genome-wide set of genetic 
 The data is precented by 39041 people from the Russian cohort, gentified using the Illumina Infinium Global Screening Array (GSA) v1.0 / v2.0 / v3.0 provided by Genotek. Scan images processing and genotypes calling were performed using GenomeStudio v2.0. Since the Genotek data cannot be provided to third parties, we recommend using [simulated data](https://github.com/MareesAT/GWA_tutorial/blob/master/1_QC_GWAS.zip/) for all steps (files with .bam , .fam and bim format). 
 
 ## Structure of Data
-See below for a description of the formats `.ped` and `.map`. For further work with the plink program, these files must be converted to `.bam`,`.fam`,`.bim`. In the [tutorial](https://github.com/MareesAT/GWA_tutorial/blob/master/), data is already given in recoded format.
+See below for a description of the formats `.ped` and `.map`. For further work  these files must be converted to `.bam`,`.fam`,`.bim` with plink. In the [tutorial](https://github.com/MareesAT/GWA_tutorial/blob/master/), data is already given in recoded format.
 ![alt text](https://www.researchgate.net/publication/323424714/figure/fig3/AS:667766705098757@1536219397189/Overview-of-various-commonly-used-PLINK-files-SNP-single-nucleotide-polymorphism.png)
 
 ## Quality control
@@ -196,4 +196,18 @@ A gene-based approach considers association between a trait and all SNP within a
 To perfom gene set analysis we used GENE2FUNC tab in FUMA web site. Gene set analysis takes into account the “scores” (in our case p-values) of all mapped genes and carries out a test of the relationship between a gene set and the genetic associations of genes with a phenotype [Leeuw A et al 2016](https://www.nature.com/articles/nrg.2016.29). The picture below shows that the analysis identified 15 top genes with the highest p-values, which were obtained in a gene-based test and made a gene set from them. Next, we can see that most of our genes are associated with phenotypes such as obesity, body mass index, etc. All phenotypes highlighted in red boxes can be connected height and weight in our data.
 ![](gene_sets_expression.png)
 
+## Conclusion and further plans
+
+The analysis of GWAS showed significant SNPs that were already associated with body mass index, obesity, and height. At the same time, 3 SNPs were found that were not annotated and associated with height and weight.
+
+In future plans, we are going to use the GWAS data to build polygenic risk scores using the PRSIСE-2 program.
+
 ## Literature
+
+Andries T. Marees,corresponding author, Hilde de Kluiver, Sven Stringer, Florence Vorspan, Emmanuel Curis, Cynthia Marie‐Claire and Eske M. Derks. A tutorial on conducting genome‐wide association studies: Quality control and statistical analysis. Int J Methods Psychiatr Res. 2018;27:e1608.
+
+de Leeuw CA, Mooij JM, Heskes T, Posthuma D (2015). MAGMA: Generalized Gene-Set Analysis of GWAS Data. PLoS Comput Biol 11(4): e1004219
+
+Jimmy Z. Liu, Allan F. Mcrae, et al. A Versatile Gene-Based Test for Genome-wide Association Studies. The American Journal of Human Genetics 87, 139–145, 2010
+
+Christiaan A. de Leeuw, Benjamin M. Neale, Tom Heskes and Danielle Posthuma. The statistical properties of gene-set analysis. Nature Reviews Genetics (2016). vol.17, 353-364.
