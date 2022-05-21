@@ -18,18 +18,16 @@
 ## Description
 In this project, the main task is to get acquainted with the genome wide association study (GWAS) and the computing a polygenic risk scores (PRS). GWAS analysis includes several steps of quality control (QC), population stratification, as well as the conduct of the GWAS analysis itself. At the end, the calculation of the PRS based on the statistics of the GWAS will be analyzed. All steps of QC and steps visualization were based on [Marees et al. 2018](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6001694/)
 
-## Data
+## Data availability
 The data is precented by 39041 people from the Russian cohort, gentified using the Illumina Infinium Global Screening Array (GSA) v1.0 / v2.0 / v3.0 provided by Genotek. Scan images processing and genotypes calling were performed using GenomeStudio v2.0. Since the Genotek data cannot be provided to third parties, we recommend using [simulated data](https://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/2010-05_phaseIII/plink_format/) for all steps. 
 
 ## Structure of Data
 `Describe Bam .fam, .bim, .bed or binary variant and how to extract to one folder. Input .png for better visualization`
 ![alt text](https://www.researchgate.net/publication/323424714/figure/fig3/AS:667766705098757@1536219397189/Overview-of-various-commonly-used-PLINK-files-SNP-single-nucleotide-polymorphism.png)
 
-## Pipline
-![alt text](https://www.researchgate.net/publication/281588338/figure/fig4/AS:281417822031895@1444106645940/Genome-wide-association-GWA-analysis-workflow-GWA-analysis-is-composed-of-10-essential.png)
+## Quality control
 ![](pipline.png)
 
-## Quality Control
 Before we start make sure you have [plink](https://www.cog-genomics.org/plink/)  and [R](https://www.r-project.org) installed.
 
 1. Filtering samlpes and positions (SNP) by call rate
@@ -126,6 +124,9 @@ Before we start make sure you have [plink](https://www.cog-genomics.org/plink/) 
     
 ## Popilation Stratification
 
+  Before proceeding GWAS analysis you should consider a population stratification of yours data. We used MultiDimensional Scaling algorithm (MDS) to reduce dimentions of the studied cohort which was conmined with samples from the 1000Genomes dataset (EAS, AFR, EUR). We used an common position for both datasets with filtration with linkage filtering (search window - 50 SNPs, number of SNPs to shift the window at the end of the step - 5, r2 between SNPs < 0.2). We performed clustering based on first and secound component using [DBSCAN](https://scikit-learn.org/stable/modules/generated/sklearn.cluster.DBSCAN.html) algoritm. The samples which are not included in the clusters were excluded. Then we apply MDS algorithm again, but without merging sapmles with the 1000Genomes dataset. We selected the first 15 components to be used as covariates in the GWAS analysis.
+  
+  ![](MDS_merge_pca.full_plot.jpeg) ![](pca_1_2.jpeg)
 
 ## GWAS
 
