@@ -199,7 +199,7 @@ To perform gene set analysis we use GENE2FUNC analysis tool in FUMA software. Ge
 
 ## Conclusion and further plans
 
-The analysis of GWAS results showed that 17 significant SNPs were associated with changing in body mass index. Moreover, for 3x SNPs such association has not been shown previously. We will continue this project and find out whether these SNPs are related to BMI changes or whether these results are an artifact.
+The analysis of GWAS results showed that 17 significant SNPs were associated with changing in body mass index. Moreover, for 3 SNPs such association has not been shown previously. We will continue this project and find out whether these SNPs are related to BMI changes or whether these results are an artifact.
 
 In future plans, we are going to use the GWAS data to build polygenic risk scores using the PRSice-2 program.
 
