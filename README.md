@@ -12,8 +12,17 @@
 - [PRice-2](https://www.prsice.info)
 - [PRIMUS v1.9](https://primus.gs.washington.edu/primusweb/index.html)
 
-## Content
-`here description of scripts if there any of them`
+## Introduction
+
+Genome-wide association study (GWAS) is a study of a genome-wide set of genetic variants in different individuals to see if any variant is associated with a morphologycal characteristics or other humant traits. In our study, we analyzed the genetic variants of a large cohort of Russians to identify single nucleotide polymorphisms (SNPs) with significant associations of changes in body mass index.
+
+### Main tasks
+
+  1. Analyze papers about GWAS and PRS
+  2. Perform data QC and study a population stratification
+  3. Run GWAS on simulated data, train PRS
+  4. Prepare GWAS protocole and pass it on to Genotek employees
+  5. Analyze summary GWAS statistics of real data
 
 ## Description
 In this project, the main task is to get acquainted with the genome wide association study (GWAS) and the computing a polygenic risk scores (PRS). GWAS analysis includes several steps of quality control (QC), population stratification, as well as the conduct of the GWAS analysis itself. At the end, the calculation of the PRS based on the statistics of the GWAS will be analyzed. All steps of QC and steps visualization were based on [Marees et al. 2018](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6001694/)
