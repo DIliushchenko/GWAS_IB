@@ -189,7 +189,8 @@ Top 10 lead SNP (by p-value) placed in a separate table:
 
 ## Gene Based Test
 
-A gene-based approach considers association between a trait and all SNP within a gene rather than each marker individually. Gene based test is assign SNP to the genes obtained from Ensembl build 85. Genome-wide significance (red dashed line) was set at 0.05 / N of genes. This test was also performed using FUMA.
+A gene-based approach considers association between a trait and all SNP within a gene rather than each marker individually. Gene based test is assign SNP to the genes obtained from Ensembl build 85. Genome-wide significance (red dashed line) was set at 0.05 / N of genes. This test was also performed using FUMA. At the picture below we can see top 9 gene asociations.
+![](gene_based_test.png)
 
 ## Gene sets
 To perfom gene set analysis we used GENE2FUNC tab in FUMA web site. Gene set analysis takes into account the “scores” (in our case p-values) of all mapped genes and carries out a test of the relationship between a gene set and the genetic associations of genes with a phenotype [Leeuw A et al 2016](https://www.nature.com/articles/nrg.2016.29). The picture below shows that the analysis identified 15 top genes with the highest p-values, which were obtained in a gene-based test and made a gene set from them. Next, we can see that most of our genes are associated with phenotypes such as obesity, body mass index, etc. All phenotypes highlighted in red boxes can be connected height and weight in our data.
