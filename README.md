@@ -14,7 +14,7 @@
 
 ## Introduction
 
-Genome-wide association study (GWAS) is a study of a genome-wide set of genetic variants in different individuals to see if any variant is associated with a morphologycal characteristics or other humant traits. In our study, we analyzed the genetic variants of a large cohort of Russians to identify single nucleotide polymorphisms (SNPs) with significant associations of changes in body mass index.
+Genome-wide association study (GWAS) is a study of a genome-wide set of genetic variants in different individuals to see if any variant is associated with a morphologycal characteristics or other humant traits. In our study, we analyzed the genetic variants of a large cohort of Russians to identify single nucleotide polymorphisms (SNPs) with significant associations of changes in body mass index and the computing a polygenic risk scores (PRS). GWAS analysis includes several steps of quality control (QC), population stratification, as well as the conduct of the GWAS analysis itself. At the end, the calculation of the PRS based on the statistics of the GWAS will be analyzed. All steps of QC and steps visualization were based on [Marees et al. 2018](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6001694/)
 
 ### Main tasks
 
@@ -23,9 +23,6 @@ Genome-wide association study (GWAS) is a study of a genome-wide set of genetic 
   3. Run GWAS on simulated data, train PRS
   4. Prepare GWAS protocole and pass it on to Genotek employees
   5. Analyze summary GWAS statistics of real data
-
-## Description
-In this project, the main task is to get acquainted with the genome wide association study (GWAS) and the computing a polygenic risk scores (PRS). GWAS analysis includes several steps of quality control (QC), population stratification, as well as the conduct of the GWAS analysis itself. At the end, the calculation of the PRS based on the statistics of the GWAS will be analyzed. All steps of QC and steps visualization were based on [Marees et al. 2018](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6001694/)
 
 ## Data availability
 The data is precented by 39041 people from the Russian cohort, gentified using the Illumina Infinium Global Screening Array (GSA) v1.0 / v2.0 / v3.0 provided by Genotek. Scan images processing and genotypes calling were performed using GenomeStudio v2.0. Since the Genotek data cannot be provided to third parties, we recommend using [simulated data](https://ftp.ncbi.nlm.nih.gov/hapmap/genotypes/2010-05_phaseIII/plink_format/) for all steps. 
